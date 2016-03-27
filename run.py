@@ -3,6 +3,7 @@
 import tweepy
 import sys
 import time
+import random
 import ConfigParser
 
 from time import strftime
@@ -26,5 +27,5 @@ api = tweepy.API(auth)
 while True:
     # Tweets have to be different. Added time.
     api.update_status("(" + strftime("%H:%M:%S") + ") Yes. #ShouldYouComment")
-    time.sleep(3600)
+    time.sleep(random.randint(3595, 3605)) # hour +/- 5 seconds so time is never duplicated
 
