@@ -5,6 +5,8 @@ import sys
 import time
 import ConfigParser
 
+from time import strftime
+
 # Initialize ConfigParser
 config = ConfigParser.ConfigParser()
 config.read("config.ini")
@@ -22,6 +24,7 @@ api = tweepy.API(auth)
 
 # Runes in the Background
 while True:
-    api.update_status("Yes. #ShouldYouComment")
+    # Tweets have to be different. Added time.
+    api.update_status("(" + strftime("%H:%M:%S") + ") Yes. #ShouldYouComment")
     time.sleep(3600)
 
